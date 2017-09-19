@@ -15,41 +15,47 @@
 
 <ion-content padding>
   <ion-card>
-
     <ion-item>
       <ion-avatar item-start>
         <img src="../../assets/image/avatar-poe.png">
       </ion-avatar>
-      <h2>{{ nomeUsuario }}</h2>
-      <p>November 5, 1955</p>
+      <h2>{{ objeto_feed.titulo }}</h2>
+      <p>{{ objeto_feed.data }}</p>
     </ion-item>
 
     <img src="../../assets/image/advance-card-tmntr.jpg">
 
     <ion-card-content>
-      <p>Estudando ionic.</p>
+      <p>{{ objeto_feed.descricao }}</p>
     </ion-card-content>
 
     <ion-row>
       <ion-col>
         <button ion-button icon-left clear small>
             <ion-icon name="thumbs-up"></ion-icon>
-            <div>12 Likes</div>
+            <div>{{ objeto_feed.qtd_likes }} likes</div>
           </button>
       </ion-col>
       <ion-col>
         <button ion-button icon-left clear small>
             <ion-icon name="text"></ion-icon>
-            <div>4 Comments</div>
+            <div>{{ objeto_feed.qtd_comments }} comments</div>
           </button>
       </ion-col>
       <ion-col center text-center>
         <ion-note>
-          11h ago
+          {{ objeto_feed.time_comment }}
         </ion-note>
       </ion-col>
     </ion-row>
 
+  </ion-card>
+
+  <ion-card *ngFor="let post of lista_posts">
+    <ion-item>
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.body }}</p>
+    </ion-item>
   </ion-card>
 
   <ion-fab bottom right>
